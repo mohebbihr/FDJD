@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#Map-Reduce Parameters
+mpJar=mp.jar
+echo "$mpJar"
+mr_exec=mp
+
+#module load hadoop
+echo "Mapping and reducing..."
+# Set environment variables
+#export HADOOP_INSTALL=~/programs/hadoop-1.2.1/
+#export PATH=$PATH:${HADOOP_INSTALL}bin:${HADOOP_INSTALL}sbin
+#export PATH=$PATH:/usr/lib/jdk1.7.0_25/bin
+#MR_HADOOPJAR=~/programs/hadoop-1.2.1/hadoop-core-1.2.1.jar
+MR_MANIFEST=manifest.txt
+echo "$MR_MANIFEST"
+# Compile mr and create executable jar
+echo "Compiling mp source code.."
+javac -classpath /home/hamidreza.mohebbi001/bin/hadoop-2.7.3/hadoop-core-1.2.1.jar *.java
+#javac -source 1.6 -classpath hadoop-core-1.2.1.jar ./*.java
+#echo "javac -classpath $MR_HADOOPJAR ~/TILSH/mr/src/*.java"
+echo "Creating mp jar.."
+jar -cvmf $MR_MANIFEST $mpJar *.class
+echo "jar cvmf $mrJar $MR_MANIFEST *.class"
+export HADOOP_CLASSPATH=$mpJar
+echo "export HADOOP_CLASSPATH=$mpJar"
+#hadoop $mr_exec $sketchsortjPPOutput 
+echo "hadoop $mp_exec $sketchsortjPPOutput"
+echo "Compile Map-Reduce Code Is Completed."
+
+exit 0 

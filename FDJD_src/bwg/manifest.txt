@@ -1,0 +1,7 @@
+Main-Class: Main
+Class-Path: ../picard-tools-1.92/sam-1.92.jar ../picard-tools-1.92/picard-1.92.jar
+
+
+
+
+

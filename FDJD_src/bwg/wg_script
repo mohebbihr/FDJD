@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Version 1.0 by Rosanne Vetro - August 2013
+# Script for running MapReduce app. to find unmapped reads that may correspond to translocation sites
+
+# Script parameters 
+SRCJAR=bwg.jar
+MANIFEST=manifest.txt
+
+javac -cp ../picard-tools-1.92/picard-1.92.jar:../picard-tools-1.92/sam-1.92.jar *.java
+
+jar cvfm $SRCJAR $MANIFEST *.class
+
+
+exit 0  
+
+
